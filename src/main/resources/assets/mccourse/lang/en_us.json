@@ -1,7 +1,10 @@
 {
   "item.mccourse.alexandrite": "Alexandrite",
   "item.mccourse.raw_alexandrite": "Raw Alexandrite",
+  "item.mccourse.peat_brick": "Peat Brick",
   "item.mccourse.metal_detector": "Metal Detector",
+
+  "item.mccourse.kohlrabi": "Kohlrabi",
 
   "block.mccourse.alexandrite_block": "Alexandrite Block",
   "block.mccourse.raw_alexandrite_block": "Raw Alexandrite Block",
@@ -14,5 +17,8 @@
 
   "creativetab.course_tab": "Course Tab",
 
-  "item.mccourse.metal_detector.no_valuables": "No valuables found."
+  "item.mccourse.metal_detector.no_valuables": "No valuables found.",
+  "tooltip.mccourse.metal_detector.tooltip.shift": "Right click a block to find buried valuables!",
+  "tooltip.mccourse.metal_detector.tooltip": "Hold §eshift§r for info.",
+  "tooltip.mccourse.sound_block": "Makes sound"
 }
