@@ -39,6 +39,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         stairBuilder(ModBlocks.ALEXANDRITE_STAIRS.get(), Ingredient.of(ModItems.ALEXANDRITE.get()));
         slabBuilder(RecipeCategory.MISC, ModBlocks.ALEXANDRITE_SLAB.get(), Ingredient.of(ModBlocks.ALEXANDRITE_BLOCK.get()));
+        doorBuilder(ModBlocks.ALEXANDRITE_DOOR.get(), Ingredient.of(ModItems.ALEXANDRITE.get()));
+        trapdoorBuilder(ModBlocks.ALEXANDRITE_TRAPDOOR.get(), Ingredient.of(ModItems.ALEXANDRITE.get()));
 
 
 

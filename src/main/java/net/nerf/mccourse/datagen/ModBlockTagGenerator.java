@@ -48,9 +48,18 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(
-                        ModBlocks.NETHER_ALEXANDRITE_ORE.get(),
-                        ModBlocks.END_ALEXANDRITE_ORE.get(),
-                        ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get()
+                        ModBlocks.NETHER_ALEXANDRITE_ORE.get()
+                );
+        this.tag(ModTags.Blocks.NEEDS_ALEXANDRITE_TOOL)
+                .add(
+                        ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get(),
+                        ModBlocks.END_ALEXANDRITE_ORE.get()
+                );
+        this.tag(ModTags.Blocks.PAXEL_MINEABLE)
+                .addTags(
+                        BlockTags.MINEABLE_WITH_PICKAXE,
+                        BlockTags.MINEABLE_WITH_AXE,
+                        BlockTags.MINEABLE_WITH_SHOVEL
                 );
 
         this.tag(BlockTags.FENCES)
