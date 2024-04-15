@@ -28,6 +28,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.nerf.mccourse.block.ModBlocks;
+import net.nerf.mccourse.enchantment.ModEnchantments;
 import net.nerf.mccourse.item.ModCreativeModeTabs;
 import net.nerf.mccourse.item.ModItems;
 import org.slf4j.Logger;
@@ -47,6 +48,7 @@ public class MCCourseMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEnchantments.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

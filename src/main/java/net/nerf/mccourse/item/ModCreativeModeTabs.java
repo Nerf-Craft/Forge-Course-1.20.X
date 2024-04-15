@@ -57,6 +57,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.NETHER_ALEXANDRITE_ORE.get());
                         output.accept(ModBlocks.END_ALEXANDRITE_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get());
+
+                        output.accept(ModBlocks.ALEXANDRITE_LAMP.get());
                     }).build());
 
 
