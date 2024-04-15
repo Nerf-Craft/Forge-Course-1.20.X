@@ -12,6 +12,12 @@
   "item.mccourse.alexandrite_shovel": "Alexandrite Shovel",
   "item.mccourse.alexandrite_hoe": "Alexandrite Hoe",
   "item.mccourse.alexandrite_paxel": "Alexandrite Paxel",
+  "item.mccourse.alexandrite_hammer": "Alexandrite Hammer",
+
+  "item.mccourse.alexandrite_helmet": "Alexandrite Helmet",
+  "item.mccourse.alexandrite_chestplate": "Alexandrite Chestplate",
+  "item.mccourse.alexandrite_leggings": "Alexandrite Leggings",
+  "item.mccourse.alexandrite_boots": "Alexandrite Boots",
 
   "block.mccourse.alexandrite_block": "Alexandrite Block",
   "block.mccourse.alexandrite_stairs": "Alexandrite Stairs",
@@ -36,5 +42,8 @@
   "item.mccourse.metal_detector.no_valuables": "No valuables found.",
   "tooltip.mccourse.metal_detector.tooltip.shift": "Right click a block to find buried valuables!",
   "tooltip.mccourse.metal_detector.tooltip": "Hold §eshift§r for info.",
-  "tooltip.mccourse.sound_block": "Makes sound"
+  "tooltip.mccourse.sound_block": "Makes sound",
+
+
+  "enchantment.mccourse.lightning_strike": "Lightning Strike"
 }
