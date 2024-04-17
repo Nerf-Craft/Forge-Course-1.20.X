@@ -3,6 +3,7 @@ package net.nerf.mccourse.item.custom;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -14,6 +15,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.nerf.mccourse.item.ModItems;
+import net.nerf.mccourse.util.InventoryUtil;
 import net.nerf.mccourse.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,6 +41,11 @@ public class MetalDetectorItem extends Item {
                     outputValuableCoordinates(positionclicked.below(i), player, blockState.getBlock());
                     foundBlock = true;
 
+                    if (InventoryUtil.hasPlayerStackInInventory(player, ModItems.DATA_TABLET.get())) {
+                        addDataToDataTablet(player, positionclicked.below(i), blockState.getBlock());
+                    }
+
+
                     break;
                 }
             }
@@ -50,6 +58,16 @@ public class MetalDetectorItem extends Item {
         pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), player -> player.broadcastBreakEvent(player.getUsedItemHand()));
 
         return InteractionResult.SUCCESS;
+    }
+
+    private void addDataToDataTablet(Player player, BlockPos below, Block block) {
+        ItemStack dataTablet = player.getInventory().getItem(InventoryUtil.getFirstInventoryIndex(player, ModItems.DATA_TABLET.get()));
+
+        CompoundTag data = new CompoundTag();
+        data.putString("mccourse.found_ore", I18n.get(block.getDescriptionId())
+                + " at (" + below.getX() + ", " + below.getY() + ", " + below.getZ() + ")");
+
+        dataTablet.setTag(data);
     }
 
     @Override

@@ -18,6 +18,7 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ALEXANDRITE.get()))
                     .title(Component.translatable("creativetab.course_tab")).displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.METAL_DETECTOR.get());
+                        output.accept(ModItems.DATA_TABLET.get());
 
                         output.accept(ModItems.ALEXANDRITE.get());
                         output.accept(ModItems.RAW_ALEXANDRITE.get());

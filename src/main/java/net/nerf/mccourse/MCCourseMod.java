@@ -30,6 +30,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.nerf.mccourse.block.ModBlocks;
 import net.nerf.mccourse.enchantment.ModEnchantments;
 import net.nerf.mccourse.item.ModCreativeModeTabs;
+import net.nerf.mccourse.item.ModItemProperties;
 import net.nerf.mccourse.item.ModItems;
 import org.slf4j.Logger;
 
@@ -82,6 +83,9 @@ public class MCCourseMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            event.enqueueWork(()-> {
+                ModItemProperties.addCustomItemProperties();
+            });
         }
     }
 }
