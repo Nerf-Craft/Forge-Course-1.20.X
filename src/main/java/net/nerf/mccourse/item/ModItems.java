@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.nerf.mccourse.MCCourseMod;
+import net.nerf.mccourse.block.ModBlocks;
 import net.nerf.mccourse.item.custom.*;
 
 public class ModItems {
@@ -22,6 +23,8 @@ public class ModItems {
             () -> new DataTabletItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> KOHLRABI = ITEMS.register("kohlrabi",
             () -> new Item(new Item.Properties().food(ModFoodProperties.KOHLRABI)));
+    public static final RegistryObject<Item> KOHLRABI_SEEDS = ITEMS.register("kohlrabi_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.KOHLRABI_CROP.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> PEAT_BRICK = ITEMS.register("peat_brick",
             () -> new FuelItem(new Item.Properties(), 200));
