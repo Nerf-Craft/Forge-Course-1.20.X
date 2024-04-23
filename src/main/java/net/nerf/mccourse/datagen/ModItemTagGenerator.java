@@ -28,6 +28,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.ALEXANDRITE_LEGGGINGS.get(),
                         ModItems.ALEXANDRITE_BOOTS.get()
                 );
+        this.tag(ItemTags.MUSIC_DISCS)
+                .add(ModItems.BAR_BRAWL_RECORD.get());
 
     }
 

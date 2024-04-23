@@ -4,10 +4,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.server.command.ConfigCommand;
 import net.nerf.mccourse.MCCourseMod;
+import net.nerf.mccourse.command.ReturnHomeCommand;
+import net.nerf.mccourse.command.SetHomeCommand;
 import net.nerf.mccourse.item.custom.HammerItem;
 
 import java.util.HashSet;
@@ -40,5 +45,17 @@ public class ModEvents {
                 HARVESTED_BLOCKS.remove(pos);
             }
         }
+    }
+    @SubscribeEvent
+    public static void onCommandsRegisterMethod(RegisterCommandsEvent event) {
+        new SetHomeCommand(event.getDispatcher());
+        new ReturnHomeCommand(event.getDispatcher());
+
+        ConfigCommand.register(event.getDispatcher());
+    }
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        event.getEntity().getPersistentData().putIntArray("mccourse.homepos",
+                event.getOriginal().getPersistentData().getIntArray("mccourse.homepos"));
     }
 }

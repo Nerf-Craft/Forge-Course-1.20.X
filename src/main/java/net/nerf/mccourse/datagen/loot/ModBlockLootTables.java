@@ -38,6 +38,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
         this.dropSelf(ModBlocks.SOUND_BLOCK.get());
         this.dropSelf(ModBlocks.ALEXANDRITE_LAMP.get());
+        this.dropSelf(ModBlocks.GEM_EMPOWERING_STATION.get());
 
         this.add(ModBlocks.ALEXANDRITE_ORE.get(),
                 block -> createOreDrop(ModBlocks.ALEXANDRITE_ORE.get(), ModItems.RAW_ALEXANDRITE.get()));
@@ -54,6 +55,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         LootItemCondition.Builder $$1 = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.KOHLRABI_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(KohlrabiCropBlock.AGE, 6));
         this.add(ModBlocks.KOHLRABI_CROP.get(), this.createCropDrops(ModBlocks.KOHLRABI_CROP.get(), ModItems.KOHLRABI.get(), ModItems.KOHLRABI_SEEDS.get(), $$1));
+        this.dropSelf(ModBlocks.SNAPDRAGON.get());
+        this.add(ModBlocks.POTTED_SNAPDRAGON.get(), createPotFlowerItemTable(ModBlocks.POTTED_SNAPDRAGON.get()));
 
     }
 

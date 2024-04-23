@@ -19,13 +19,16 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.course_tab")).displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.METAL_DETECTOR.get());
                         output.accept(ModItems.DATA_TABLET.get());
+                        output.accept(ModItems.RADIATION_STAFF.get());
 
                         output.accept(ModItems.ALEXANDRITE.get());
                         output.accept(ModItems.RAW_ALEXANDRITE.get());
                         output.accept(ModItems.PEAT_BRICK.get());
+                        output.accept(ModItems.BAR_BRAWL_RECORD.get());
 
                         output.accept(ModItems.KOHLRABI.get());
                         output.accept(ModItems.KOHLRABI_SEEDS.get());
+                        output.accept(ModBlocks.SNAPDRAGON.get());
 
                         output.accept(ModItems.ALEXANDRITE_SWORD.get());
                         output.accept(ModItems.ALEXANDRITE_PICKAXE.get());
@@ -34,6 +37,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ALEXANDRITE_HOE.get());
                         output.accept(ModItems.ALEXANDRITE_PAXEL.get());
                         output.accept(ModItems.ALEXANDRITE_HAMMER.get());
+                        output.accept(ModItems.ALEXANDRITE_BOW.get());
+                        output.accept(ModItems.ALEXANDRITE_SHIELD.get());
 
                         output.accept(ModItems.ALEXANDRITE_HELMET.get());
                         output.accept(ModItems.ALEXANDRITE_CHESTPLATE.get());
@@ -61,6 +66,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get());
 
                         output.accept(ModBlocks.ALEXANDRITE_LAMP.get());
+                        output.accept(ModBlocks.GEM_EMPOWERING_STATION.get());
                     }).build());
 
 
