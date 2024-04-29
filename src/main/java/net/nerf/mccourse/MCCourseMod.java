@@ -4,10 +4,8 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -16,6 +14,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -30,10 +29,15 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.nerf.mccourse.block.ModBlocks;
+import net.nerf.mccourse.effect.ModEffects;
 import net.nerf.mccourse.enchantment.ModEnchantments;
 import net.nerf.mccourse.item.ModCreativeModeTabs;
 import net.nerf.mccourse.item.ModItemProperties;
 import net.nerf.mccourse.item.ModItems;
+import net.nerf.mccourse.loot.ModLootModifiers;
+import net.nerf.mccourse.painting.ModPaintings;
+import net.nerf.mccourse.potion.BetterBrewingRecipe;
+import net.nerf.mccourse.potion.ModPotions;
 import net.nerf.mccourse.sound.ModSounds;
 import org.slf4j.Logger;
 
@@ -54,11 +58,14 @@ public class MCCourseMod {
         ModBlocks.register(modEventBus);
         ModEnchantments.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
+        ModPaintings.register(modEventBus);
+        ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        modEventBus.addListener(this::addCreative);
 
     }
 
@@ -68,20 +75,12 @@ public class MCCourseMod {
             ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI_SEEDS.get(), 0.10f);
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SNAPDRAGON.getId(), ModBlocks.POTTED_SNAPDRAGON);
+
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION.get()));
         });
     }
 
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.ALEXANDRITE);
-            event.accept(ModItems.RAW_ALEXANDRITE);
-        }
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.ALEXANDRITE_BLOCK);
-            event.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK);
-        }
-    }
+
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
