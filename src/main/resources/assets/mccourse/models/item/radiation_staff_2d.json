@@ -1,0 +1,6 @@
+{
+  "parent": "mccourse:item/handheld",
+  "textures": {
+    "layer0": "mccourse:item/radiation_staff"
+  }
+}

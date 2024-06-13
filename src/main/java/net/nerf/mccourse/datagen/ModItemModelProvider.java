@@ -28,6 +28,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         //simpleItem(ModItems.DATA_TABLET);
         simpleItem(ModItems.PEAT_BRICK);
         simpleItem(ModItems.BAR_BRAWL_RECORD);
+        simpleItem(ModItems.SOAP_WATER_BUCKET);
 
         handheldItem(ModItems.ALEXANDRITE_SWORD);
         handheldItem(ModItems.ALEXANDRITE_PICKAXE);

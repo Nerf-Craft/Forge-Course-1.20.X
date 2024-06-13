@@ -20,6 +20,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.METAL_DETECTOR.get());
                         output.accept(ModItems.DATA_TABLET.get());
                         output.accept(ModItems.RADIATION_STAFF.get());
+                        output.accept(ModItems.SOAP_WATER_BUCKET.get());
 
                         output.accept(ModItems.ALEXANDRITE.get());
                         output.accept(ModItems.RAW_ALEXANDRITE.get());

@@ -18,6 +18,7 @@ import net.nerf.mccourse.block.custom.AlexandriteLampBlock;
 import net.nerf.mccourse.block.custom.GemEmpoweringStationBlock;
 import net.nerf.mccourse.block.custom.KohlrabiCropBlock;
 import net.nerf.mccourse.block.custom.SoundBlock;
+import net.nerf.mccourse.fluid.ModFluids;
 import net.nerf.mccourse.item.ModItems;
 import net.nerf.mccourse.sound.ModSounds;
 
@@ -93,6 +94,10 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GEM_EMPOWERING_STATION = registerBlock("gem_empowering_station",
             () -> new GemEmpoweringStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+
+
+    public static final RegistryObject<LiquidBlock> SOAP_WATER_BLOCK = BLOCKS.register("soap_water_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_SOAP_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

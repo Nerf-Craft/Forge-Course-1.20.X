@@ -2,6 +2,9 @@ package net.nerf.mccourse;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
@@ -29,16 +32,24 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.nerf.mccourse.block.ModBlocks;
+import net.nerf.mccourse.block.entity.ModBlockEntities;
 import net.nerf.mccourse.effect.ModEffects;
 import net.nerf.mccourse.enchantment.ModEnchantments;
+import net.nerf.mccourse.fluid.ModFluidTypes;
+import net.nerf.mccourse.fluid.ModFluids;
 import net.nerf.mccourse.item.ModCreativeModeTabs;
 import net.nerf.mccourse.item.ModItemProperties;
 import net.nerf.mccourse.item.ModItems;
 import net.nerf.mccourse.loot.ModLootModifiers;
 import net.nerf.mccourse.painting.ModPaintings;
+import net.nerf.mccourse.particle.ModParticles;
 import net.nerf.mccourse.potion.BetterBrewingRecipe;
 import net.nerf.mccourse.potion.ModPotions;
+import net.nerf.mccourse.recipe.ModRecipes;
+import net.nerf.mccourse.screen.GemEmpoweringStationScreen;
+import net.nerf.mccourse.screen.ModMenuTypes;
 import net.nerf.mccourse.sound.ModSounds;
+import net.nerf.mccourse.villager.ModVillagers;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -62,6 +73,13 @@ public class MCCourseMod {
         ModPaintings.register(modEventBus);
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
+        ModVillagers.register(modEventBus);
+        ModParticles.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -94,6 +112,11 @@ public class MCCourseMod {
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(()-> {
                 ModItemProperties.addCustomItemProperties();
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_SOAP_WATER.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_SOAP_WATER.get(), RenderType.translucent());
+
+                MenuScreens.register(ModMenuTypes.GEM_EMPOWERING_MENU.get(), GemEmpoweringStationScreen::new);
             });
         }
     }
